@@ -4,7 +4,8 @@ SentinelDB supports a subset of the SQL syntax. Below are a few examples of how 
 
 Select statements
 *****************
-Example:
+
+Example
 --------
 .. code-block:: sql
 
@@ -27,7 +28,8 @@ Explanation
 
 Update statements
 *****************
-Example:
+
+Example
 --------
 .. code-block:: sql
 
@@ -44,7 +46,8 @@ Explanation
 * The ``WHERE`` clause is the same as in the Select statement. If it contains only id, it is fast, otherwise all matching objects are matched so it might be slower.
 
 Delete statements
-=================
+*****************
+
 Example
 -------
 .. code-block:: sql
@@ -60,7 +63,8 @@ Explanation
 * The ``WHERE`` is the same as in the UPDATE statement including fast processing by id
 
 Insert statements
-=================
+*****************
+
 Example:
 --------
 .. code-block:: sql
@@ -77,11 +81,12 @@ Explanation
 * The ``VALUES`` caluse contains the values of the fields in the INSERT clause
 
 Common syntax
-=============
+*************
 When field or value contains ``-``, ``.`` or other special characters it must be quoted with ``"`` or ``'``. In other cases quotes are not mandatory, but can be used.
 
 Prepared statements
-===================
+*******************
+
 All SQL API endpoints (select, update, delete, insert) support prepared statements. To keep APIs stateless, parameter values are always expected with the query itself. The number of ``?`` and the number of params must be the same.
 
 Examples:

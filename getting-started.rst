@@ -1,5 +1,5 @@
 Getting Started
-===============================
+===============
 Overview
 ********
 SentinelDB is a cloud-based datastore that ensures data protection and compliance with data-protection regulations like GDPR. It implements all data-protection best practices like encryption (per record), secure audit trail, anonymization and pseudonymization of data, two-factor authentication, fraud detection, as well as relying on a secure server infrastructure.

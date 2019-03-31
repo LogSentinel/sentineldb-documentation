@@ -15,4 +15,4 @@ SentinelDB relies on five major security components:
 
 Below is an overview of the SentinelDB architecture:
 
-.. image: https://d381qa7mgybj77.cloudfront.net/wp-content/uploads/2018/11/SENTINELDB_How_It_Works_01-768x356.png
+.. image:: https://d381qa7mgybj77.cloudfront.net/wp-content/uploads/2018/11/SENTINELDB_How_It_Works_01-768x356.png
