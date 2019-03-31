@@ -64,7 +64,8 @@ In case you have mobile or desktop applications and want to store user-specific 
 Once you have authentication credentials, you can experiment through the `API console <https://db.logsentinel.com/api>`_ . Below is a step-by-step example using curl (we’ve trimmed the authentication header for better readability):
 
 Search schema
--------------
+*************
+
 Data in SentinelDB is encrypted per record so in order to be able to search in the encrypted data, you have to define a schema. You can define it via the `search schema UI <https://db.logsentinel.com/search-schemas>`_ or via an API call. For example:
 
 .. code:: text
@@ -80,10 +81,24 @@ Data in SentinelDB is encrypted per record so in order to be able to search in t
 	 ]' 'https://api.db.logsentinel.com/api/search-schema/bc3f863b-796b-4ecc-96aa-abf0acea04a4/RECORD?recordType=Order'
 
 	 
-This creates a schema for a record of type ``Order``with one field – the ``customerName``. You will be able to search by the customer name after inserting records. If you want to be able to search users by attributes other then their email, ID or username, you can define a search schema for your users as well. :doc:`For more information about search schemas, see here </search-schemas>`.
+This creates a schema for a record of type ``Order`` with one field – the ``customerName``. You will be able to search by the customer name after inserting records. If you want to be able to search users by attributes other then their email, ID or username, you can define a search schema for your users as well.
+
+.. note::
+
+    Search schemas may appear flat, as you can only specify a list of fields, but in case you are storing a nested structure (e.g. ``address.primary.streetName``), you can use the dot notation to specify that a nested field is indexed and searchable
+	
+
+You can create and modify search schemas by API calls or via a dedicated UI from the dashboard. Each schema field has the following properties:
+
+* ``name`` - the name of the field. In flat structures it is a simple name, but a dot notation can also be used in case of nested structures (as shown above, for example ``address.primary.streetName``)
+* ``indexed`` - specifies whether the field is indexed and therefore searchable.
+* ``analyzed`` - specifies whether keywords should be extracted from the field (useful for full-text fields). Note that due to the encrypted nature of the search, stemming or other keyword analysis is not performed.
+* ``visibility`` - ``PUBLIC``, ``PRIVATE`` or ``PROTECTED``. The visibility is a property that instructs SentinelDB what fields to return for queries. Only public ones are returned by default. If private or protected fields are required to be returned, this should be explicitly specified in the query. This is useful for protecting sensitive data from accidentally being fetched and displayed on public pages.
+
 
 Inserting data
---------------
+**************
+
 First, we create a user. The ``bc3f863b-796b-4ecc-96aa-abf0acea04a4`` parameter is the datastore ID in which we want to store the user (and then the record). We supply an arbitrary JSON for attributes as well as a few predefined fields like email and password:
 
 .. code:: text

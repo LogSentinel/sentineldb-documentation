@@ -10,6 +10,7 @@ Welcome to the LogSentinel SentinelTrails Documentation!
    security-architecture
    api-reference
    features
+   sql
    compliance-faq
    mbaas
    
