@@ -65,8 +65,8 @@ Explanation
 Insert statements
 *****************
 
-Example:
---------
+Example
+-------
 .. code-block:: sql
 
  INSERT INTO "3aa42837-6de4-4203-a8c9-b9696d4408eb".records.Order
