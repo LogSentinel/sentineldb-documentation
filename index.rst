@@ -1,4 +1,4 @@
-Welcome to the LogSentinel SentinelTrails Documentation!
+Welcome to the LogSentinel SentinelDB Documentation!
 ========================================================
 
 .. toctree::
