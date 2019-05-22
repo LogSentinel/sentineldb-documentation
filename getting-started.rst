@@ -110,9 +110,9 @@ First, we create a user. The ``bc3f863b-796b-4ecc-96aa-abf0acea04a4`` parameter 
 		 "lastName": "Smith", \ 
 		 "city": "London" \ 
 	   }, \ 
-	   "email": "john.smith%40example.com", \ 
+	   "email": "john.smith@example.com", \ 
 	   "password": "password", \ 
-	   "username": "john.smith%40example.com" \ 
+	   "username": "john.smith@example.com" \ 
 	 }' 'https://db.logsentinel.com/api/user/datastore/bc3f863b-796b-4ecc-96aa-abf0acea04a4'
 
 
