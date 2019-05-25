@@ -29,10 +29,56 @@ Creating a user profile
 		
 	.. tab-container:: php
 		:title: PHP
+		
+		.. code-block:: php
+		
+			$data = <<<EOT
+				{
+				  "email": "john.smith@example.com",
+				  "password": "password",
+				  "attributes": {
+					"firstName": "John",
+					"lastName": "Smith",
+					"city": "London"
+				  }
+				}
+			EOT;
+			
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			
+			curl_setopt($curl, CURLOPT_URL, 'https://api.db.logsentinel.com/api/user/datastore/' + datastoreId);
+			curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json'
+			));
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			curl_setopt($curl, CURLOPT_USERPWD, $ORG_ID . ":" . $SECRET);
+			
+			// EXECUTE:
+			$result = curl_exec($curl);
+		
 	
 	.. tab-container:: python
 		:title: Python
-	
+		
+		.. code-block:: python
+			
+			import requests
+			url = 'https://api.db.logsentinel.com/api/user/datastore/' + datastoreId;
+			data = '''{
+			  "email": "john.smith@example.com",
+			  "password": "password",
+			  "attributes": {
+				"firstName": "John",
+				"lastName": "Smith",
+				"city": "London"
+			  }
+			}'''
+			
+			response = requests.post(url, auth=HTTPBasicAuth(orgId, secret), data=data, headers={"Content-Type": "application/json"})
+
 	.. tab-container:: nodejs
 		:title: Node.js
 
