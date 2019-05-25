@@ -1,0 +1,5 @@
+ersion: 2
+sphinx:
+  configuration: conf.py
+python:
+   version: 3.7

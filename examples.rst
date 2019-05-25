@@ -6,9 +6,10 @@ Below are some code example for basic SentinelDB functionality:
 Creating a user profile
 ***********************
 
-.. tabs::
+.. content-tabs::
 
-	.. tab:: Java
+	.. tab-container:: java
+		:title: Java
 		
 		.. code-block:: java
 		
@@ -26,11 +27,14 @@ Creating a user profile
 			
 			UUID id = client.getUserActions().createUser(datastoreId, user, null).getId();
 		
-	.. tab:: PHP
+	.. tab-container:: php
+		:title: PHP
 	
-	.. tab:: Python
+	.. tab-container:: python
+		:title: Python
 	
-	.. tab:: Node.js
+	.. tab-container:: nodejs
+		:title: Node.js
 
 		.. code-block:: javascript
 		
