@@ -7,6 +7,7 @@ Welcome to the LogSentinel SentinelDB Documentation!
    :glob:
 
    getting-started
+   examples
    security-architecture
    api-reference
    features
