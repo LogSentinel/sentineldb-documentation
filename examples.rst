@@ -11,6 +11,8 @@ Creating a user profile
 	.. tab-container:: java
 		:title: Java
 		
+		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
+		
 		.. code-block:: java
 		
 			SentinelDBClient client = SentinelDBClientBuilder.create(orgId, secret).build();
@@ -33,15 +35,15 @@ Creating a user profile
 		.. code-block:: php
 		
 			$data = <<<EOT
-				{
-				  "email": "john.smith@example.com",
-				  "password": "password",
-				  "attributes": {
-					"firstName": "John",
-					"lastName": "Smith",
-					"city": "London"
-				  }
-				}
+			{
+			  "email": "john.smith@example.com",
+			  "password": "password",
+			  "attributes": {
+				"firstName": "John",
+				"lastName": "Smith",
+				"city": "London"
+			  }
+			}
 			EOT;
 			
 			$curl = curl_init();
