@@ -120,10 +120,12 @@ Creating a user profile
 
 Creating a record
 ***********************
+
 .. content-tabs::
 
 	.. tab-container:: java
 		:title: Java
+		
 		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
 		
 		.. code-block:: java
@@ -167,6 +169,7 @@ Creating a record
 		:title: Python
 		
 		.. code-block:: python
+		
 			import requests
 			url = 'https://api.db.logsentinel.com/api/record/datastore/' + datastoreId + '?type=Document';
 			data = '''{
@@ -211,13 +214,16 @@ Creating a record
 			
 Searching records
 ***********************
+
 .. content-tabs::
 
 	.. tab-container:: java
 		:title: Java
+		
 		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
 		
 		.. code-block:: java
+		
 			SentinelDBClient client = SentinelDBClientBuilder.create(orgId, secret).build();
 
 			Map<String, String> searchRecordRequest = new HashMap<>();
@@ -238,6 +244,7 @@ Searching records
 		:title: PHP
 		
 		.. code-block:: php
+		
 			$searchReuqest = <<<EOT
 			{
 			  "name": "Record Name",
@@ -271,6 +278,7 @@ Searching records
 		:title: Python
 		
 		.. code-block:: python
+		
 			import requests
 			import time
 			
@@ -290,13 +298,13 @@ Searching records
 
 			url = 'https://api.db.logsentinel.com/api/search/records/' + type  + '/datastore/' + datastoreId + '?start=' + start + &end=' + end + '&pageNumber=' + pageNumber + '&pageSize=' + pageSize + '&visibilityLevel=' + visibilityLevel;
 
-
 			response = requests.post(url, auth=HTTPBasicAuth(orgId, secret), data=searchRequest, headers={"Content-Type": "application/json"})
 			
 	.. tab-container:: nodejs
 		:title: Node.js
 
 		.. code-block:: javascript
+		
 			var searchRequest = JSON.stringify({
 			  "name": "Record Name",
 			  "code": "LDR354"
@@ -332,15 +340,19 @@ Searching records
 
 			req.write(searchRequest);
 			req.end();
+			
 Searching users
 ***********************
+
 .. content-tabs::
 
 	.. tab-container:: java
 		:title: Java
+		
 		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
 		
 		.. code-block:: java
+		
 			SentinelDBClient client = SentinelDBClientBuilder.create(orgId, secret).build();
 
 			Map<String, String> searchUserRequest = new HashMap<>();
@@ -361,6 +373,7 @@ Searching users
 		:title: PHP
 		
 		.. code-block:: php
+		
 			$searchReuqest = <<<EOT
 			{
 			  "city": "London",
@@ -394,6 +407,7 @@ Searching users
 		:title: Python
 		
 		.. code-block:: python
+		
 			import requests
 			import time
 			
@@ -420,6 +434,7 @@ Searching users
 		:title: Node.js
 
 		.. code-block:: javascript
+		
 			var searchRequest = JSON.stringify({
 			   "city": "London",
 			   "name": "John"
@@ -459,10 +474,12 @@ Searching users
 
 Batch insert
 ***********************
+
 .. content-tabs::
 
 	.. tab-container:: java
 		:title: Java
+		
 		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
 		
 		.. code-block:: java
@@ -496,6 +513,7 @@ Batch insert
 		:title: PHP
 		
 		.. code-block:: php
+		
 			$data = <<<EOT
 			[{
 			  "entityType": "RECORD",
@@ -534,6 +552,7 @@ Batch insert
 		:title: Python
 
 		.. code-block:: python
+		
 			url = 'https://api.db.logsentinel.com/api/batch/insert/' + datastoreId;
 			data = '''[{
 			  "entityType": "RECORD",
