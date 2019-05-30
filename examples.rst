@@ -143,6 +143,7 @@ Creating a record
 		:title: PHP
 		
 		.. code-block:: php
+			
 			$data = <<<EOT				
 				{
 				  "name": "Record Name",
@@ -165,6 +166,7 @@ Creating a record
 			
 			// EXECUTE:
 			$result = curl_exec($curl);
+			
 	.. tab-container:: Python
 		:title: Python
 		
@@ -184,6 +186,7 @@ Creating a record
 		:title: Node.js
 
 		.. code-block:: javascript
+		
 			var https = require('https');
 			var data = JSON.stringify({
 			   'name': 'Record Name',
@@ -305,12 +308,12 @@ Searching records
 
 		.. code-block:: javascript
 		
+			var https = require('https');
+			
 			var searchRequest = JSON.stringify({
 			  "name": "Record Name",
 			  "code": "LDR354"
 			});
-
-			var https = require('https');
 
 			var start = new Date().getTime() - 1000*60*60*24L;
 			var end  = new Date().getTime()
@@ -435,12 +438,12 @@ Searching users
 
 		.. code-block:: javascript
 		
+			var https = require('https');
+		
 			var searchRequest = JSON.stringify({
 			   "city": "London",
 			   "name": "John"
 			});
-
-			var https = require('https');
 
 			var start = new Date().getTime() - 1000*60*60*24L;
 			var end  = new Date().getTime()
@@ -552,6 +555,8 @@ Batch insert
 		:title: Python
 
 		.. code-block:: python
+		
+			import requests
 		
 			url = 'https://api.db.logsentinel.com/api/batch/insert/' + datastoreId;
 			data = '''[{
