@@ -101,7 +101,7 @@ Creating a user profile
 
 			var options = {
 			  host: 'api.db.logsentinel.com',
-			  path: '/user/datastore/' + DATASTORE_ID,
+			  path: '/api/user/datastore/' + DATASTORE_ID,
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json; charset=utf-8',
@@ -192,7 +192,7 @@ Creating a record
 
 			var options = {
 			  host: 'api.db.logsentinel.com',
-			  path: '/record/datastore/' + DATASTORE_ID + '?type=Document',
+			  path: '/api/record/datastore/' + DATASTORE_ID + '?type=Document',
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json; charset=utf-8',
@@ -316,7 +316,7 @@ Searching records
 
 			var options = {
 			  host: 'api.db.logsentinel.com',
-			  path: 'https://api.db.logsentinel.com/api/search/records/' + type  + '/datastore/' + datastoreId + '?start=' + start + &end=' + end + '&pageNumber=' + pageNumber + '&pageSize=' + pageSize + '&visibilityLevel=' + visibilityLevel;
+			  path: '/api/search/records/' + type  + '/datastore/' + datastoreId + '?start=' + start + &end=' + end + '&pageNumber=' + pageNumber + '&pageSize=' + pageSize + '&visibilityLevel=' + visibilityLevel,
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json; charset=utf-8',
@@ -439,7 +439,7 @@ Searching users
 
 			var options = {
 			  host: 'api.db.logsentinel.com',
-			  path: 'https://api.db.logsentinel.com/api/search/records/datastore/' + datastoreId + '?start=' + start + &end=' + end + '&pageNumber=' + pageNumber + '&pageSize=' + pageSize + '&visibilityLevel=' + visibilityLevel;
+			  path: '/api/search/records/datastore/' + datastoreId + '?start=' + start + &end=' + end + '&pageNumber=' + pageNumber + '&pageSize=' + pageSize + '&visibilityLevel=' + visibilityLevel,
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json; charset=utf-8',
@@ -456,3 +456,147 @@ Searching users
 			req.write(searchRequest);
 			req.end();
 
+
+Batch insert
+***********************
+.. content-tabs::
+
+	.. tab-container:: java
+		:title: Java
+		The Java example uses the `sentineldb-java-client <https://github.com/LogSentinel/sentineldb-java-client/>`_ 
+		
+		.. code-block:: java
+		
+			SentinelDBClient client = SentinelDBClientBuilder.create(orgId, secret).build();
+
+			List<BatchRequestItem> batch = new ArrayList<>();
+
+			Map<String, String> attributes = new HashMap<>();
+			attributes.put("firstName", "John");
+			attributes.put("lastName", "Smith");
+			attributes.put("city", "London");
+			BatchRequestItem batchRequestItem = new BatchRequestItem();
+			batchRequestItem.setProperties(attributes);
+			batchRequestItem.setEntityType(BatchRequestItem.EntityTypeEnum.RECORD);
+			batch.add(batchRequestItem);
+
+			attributes = new HashMap<>();
+			attributes.put("firstName", "Jane");
+			attributes.put("lastName", "Smith");
+			attributes.put("city", "Dublin");
+
+			batchRequestItem = new BatchRequestItem();
+			batchRequestItem.setProperties(attributes);
+			batchRequestItem.setEntityType(BatchRequestItem.EntityTypeEnum.RECORD);
+			batch.add(batchRequestItem);
+
+			client.getBatchApi().batchInsert(batch, datastoreId);
+			
+	.. tab-container:: php
+		:title: PHP
+		
+		.. code-block:: php
+			$data = <<<EOT
+			[{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Record Name",
+				"details": "Some details",
+				"code": "LDR354"
+			  }
+			},
+			{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Another Record Name",
+				"details": "Some other details",
+				"code": "HFS322"
+			  }
+			}]
+			EOT;
+			
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			
+			curl_setopt($curl, CURLOPT_URL, 'https://api.db.logsentinel.com/api/batch/insert/' + datastoreId );
+			curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json'
+			));
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			curl_setopt($curl, CURLOPT_USERPWD, $ORG_ID . ":" . $SECRET);
+			
+			// EXECUTE:
+			$result = curl_exec($curl);
+			
+	.. tab-container:: Python
+		:title: Python
+
+		.. code-block:: python
+			url = 'https://api.db.logsentinel.com/api/batch/insert/' + datastoreId;
+			data = '''[{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Record Name",
+				"details": "Some details",
+				"code": "LDR354"
+			  }
+			},
+			{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Another Record Name",
+				"details": "Some other details",
+				"code": "HFS322"
+			  }
+			}]
+			'''
+
+			response = requests.post(url, auth=HTTPBasicAuth(orgId, secret), data=data, headers={"Content-Type": "application/json"})
+			
+	.. tab-container:: nodejs
+		:title: Node.js
+
+		.. code-block:: javascript
+		
+			var https = require('https');
+			var data = JSON.stringify([{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Record Name",
+				"details": "Some details",
+				"code": "LDR354"
+			  }
+			},
+			{
+			  "entityType": "RECORD",
+			  "properties": {
+				"name": "Another Record Name",
+				"details": "Some other details",
+				"code": "HFS322"
+			  }
+			}]);
+
+			var auth = 'Basic ' + Buffer.from(ORG_ID + ':' + ORG_SECRET).toString('base64')
+
+			var options = {
+			  host: 'api.db.logsentinel.com',
+			  path: '/api/batch/insert/' + datastoreId,
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json; charset=utf-8',
+				'Content-Length': data.length
+				'Authorization': auth;
+			  }
+			};
+
+			var req = https.request(options, function(res) {
+			  var result = JSON.parse(response.body)
+			  //...
+			});
+
+			req.write(data);
+			req.end();
+			
+			
