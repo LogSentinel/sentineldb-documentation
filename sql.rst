@@ -25,6 +25,10 @@ Explanation
 * The ``ORDER BY`` clause can contain list of fields separated by ‘,’ ASC and DESC sorting is allowed for every field
 * The ``LIMIT`` clause expects numeric value for limiting results
 
+Count
+-----------
+
+Count aggregation can be used in the ``SELECT`` clause . Single count(*) is optimal and returns the count without limits (of course filtering by where clause is applied). If there is count by field ( ``SELECT count(foo) FROM ...`` ) only not NULL values are counted and there is a limit of 10000 entries. Multiple counts can be selected ( ``SELECT count(foo), count(bar) FROM ...`` ) If count aggregation is mixed with normal field (``SELECT count(foo), bar, bazz FROM ...``), counts work as normal and other fields have random value from selected rows. This behaviour is similar to MySQL database. 
 
 Update statements
 *****************
