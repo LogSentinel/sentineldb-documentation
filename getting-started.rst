@@ -196,7 +196,9 @@ This request creates a sample template with the name "Sample Template" and conte
         -H "Content-Type: application/json" \
         -H "Authorization: Basic NWFlZTI0OTctNDU4ZS00NjU4LWI5NDItNjQzOTNkOTZhN2I4OjF..."
 
-The Pebble syntax evaluates the ``user.username`` to the username of the recipient the email/SMS is send to (same with the ``user.email``). There are a couple of "keys" like that and here is the full list of them.
+The Pebble syntax evaluates the ``user.username`` to the username of the recipient the email/SMS is send to (same with the ``user.email``).
+
+There are a couple of "keys" like that and here is the full list of them.
 
 * ``user`` - contains the general information about an user
 * ``userAttributes`` - contains specific information about the user
