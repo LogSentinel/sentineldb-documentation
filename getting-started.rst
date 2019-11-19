@@ -140,3 +140,64 @@ Now we have a user with one order. If we want to retrieve all order for a given 
 	--header 'Authorization: Basic NTBmOGNkYWYtNGUzZS00NDhhLWJmMDctOWRhODk5Nz...' 
 	-d '{}' 'https://db.logsentinel.com/api/search/records/Order/datastore/bc3f863b-796b-4ecc-96aa-abf0acea04a4?pageSize=20'
 	
+Messaging system
+**************
+
+The messaging system allows you to send both SMS and emails via our API.
+
+.. note::
+
+    First you will need to configure SendGrid and Twilio credentials for you organization via our `UI <https://db.logsentinel.com/messaging>`_ before you can use the message system.
+
+Then you can send messages via our API. Below are some curl-based examples of API calls for sending SMSes and emails:
+
+.. code:: text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+There is also the option to create and manage multiple templates (all of which are using `Pebble syntax <https://pebbletemplates.io/>`_). The templates can all be configured vie the `template UI <https://db.logsentinel.com/messaging>`_ or via an API call. For example:
+
+.. code:: text
+
+    curl "https://db.logsentinel.com/api/template" \
+        -X POST \
+        -d "{\n  \"name\": \"Sample Template\",\n  \"content\": \"This is a sample template\"\n}" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Basic NWFlZTI0OTctNDU4ZS00NjU4LWI5NDItNjQzOTNkOTZhN2I4OjF..."
+
+This request creates a sample template with the name "Sample Template" and content "This is a sample template". As mentioned above, templates are also using `Pebble syntax <https://pebbletemplates.io/>`_ and below you can see an example of a template using `Pebble syntax <https://pebbletemplates.io/>`_.
+
+.. code:: text
+
+    curl "https://db.logsentinel.com/api/template" \
+        -X POST \
+        -d "{\n  \"name\": \"Sample Template with Pebble syntax\",\n  \"content\": \"Hello {{ user.username }}, your email is {{ user.email }}\"\n}" \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Basic NWFlZTI0OTctNDU4ZS00NjU4LWI5NDItNjQzOTNkOTZhN2I4OjF..."
+
