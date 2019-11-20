@@ -8,6 +8,7 @@ Welcome to the LogSentinel SentinelDB Documentation!
 
    getting-started
    examples
+   messaging
    security-architecture
    api-reference
    features
