@@ -139,4 +139,3 @@ Now we have a user with one order. If we want to retrieve all order for a given 
 	curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' 
 	--header 'Authorization: Basic NTBmOGNkYWYtNGUzZS00NDhhLWJmMDctOWRhODk5Nz...' 
 	-d '{}' 'https://db.logsentinel.com/api/search/records/Order/datastore/bc3f863b-796b-4ecc-96aa-abf0acea04a4?pageSize=20'
-	
