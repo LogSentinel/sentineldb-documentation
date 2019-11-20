@@ -200,7 +200,7 @@ The Pebble syntax evaluates the ``user.username`` to the username of the recipie
 
 There are a couple of "keys" like that and here is the full list of them.
 
-* ``user`` - contains the general information about an user (here is a list of all the properties available)
+#. ``user`` - contains the general information about an user (here is a list of all the properties available)
     * ``.email``- gets the email of the user
     * ``.username``- gets the username of the user
     * ``.version``- gets the version of the user
@@ -209,9 +209,9 @@ There are a couple of "keys" like that and here is the full list of them.
     * ``.datastoreId``- gets the datastoreId of the user
     * ``.twoFactorAuthKey``- gets the twoFactorAuthKey of the user
     * ``.deleted``- checks if the user is deleted
-* ``userAttributes`` - contains specific information about the user (you can access the content of this key with userAttribute.get("sample"))
-* ``record`` - contains the body of a given record (you can access the content of this key with record.get("sample"))
-* ``rawRecord`` - contains the general information about a record (here is a list of all the properties available)
+#. ``userAttributes`` - contains specific information about the user (you can access the content of this key with userAttribute.get("sample"))
+#. ``record`` - contains the body of a given record (you can access the content of this key with record.get("sample"))
+#. ``rawRecord`` - contains the general information about a record (here is a list of all the properties available)
     * ``.version``- gets the version of the record
     * ``.datastoreId``- gets the datastoreId of the record
     * ``.ownerId``- gets the ownerId of the record
