@@ -201,7 +201,12 @@ The Pebble syntax evaluates the ``user.username`` to the username of the recipie
 There are a couple of "keys" like that and here is the full list of them.
 
 * ``user`` - contains the general information about an user (here is a list of all the properties available)
-    #.``.email``- gets the email of the user
+    # ``.email``- gets the email of the user
+    # ``.username``- gets the username of the user
+    # ``.email``- gets the email of the user
+    # ``.email``- gets the email of the user
+    # ``.email``- gets the email of the user
+    # ``.email``- gets the email of the user
 * ``userAttributes`` - contains specific information about the user
 * ``record`` - contains the body of a given record
 * ``rawRecord`` - contains the general information about a record
