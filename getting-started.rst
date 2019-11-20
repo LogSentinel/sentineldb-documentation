@@ -203,13 +203,21 @@ There are a couple of "keys" like that and here is the full list of them.
 * ``user`` - contains the general information about an user (here is a list of all the properties available)
     * ``.email``- gets the email of the user
     * ``.username``- gets the username of the user
-    * ``.email``- gets the email of the user
-    * ``.email``- gets the email of the user
-    * ``.email``- gets the email of the user
-    * ``.email``- gets the email of the user
-* ``userAttributes`` - contains specific information about the user
-* ``record`` - contains the body of a given record
-* ``rawRecord`` - contains the general information about a record
+    * ``.version``- gets the version of the user
+    * ``.status``- gets the status of the user
+    * ``.phoneNumber``- gets the phoneNumber of the user
+    * ``.datastoreId``- gets the datastoreId of the user
+    * ``.twoFactorAuthKey``- gets the twoFactorAuthKey of the user
+    * ``.deleted``- checks if the user is deleted
+* ``userAttributes`` - contains specific information about the user (you can access the content of this key with userAttribute.get("sample"))
+* ``record`` - contains the body of a given record (you can access the content of this key with record.get("sample"))
+* ``rawRecord`` - contains the general information about a record (here is a list of all the properties available)
+    * ``.version``- gets the version of the record
+    * ``.datastoreId``- gets the datastoreId of the record
+    * ``.ownerId``- gets the ownerId of the record
+    * ``.type``- gets the type of the record
+    * ``.deleted``- checks if the record is deleted
+    * ``.binary``- checks if the record is binary
 
 
 For more information on how to use the template and messaging API you can check our `API Reference <https://api.db.logsentinel.com/api>`_
