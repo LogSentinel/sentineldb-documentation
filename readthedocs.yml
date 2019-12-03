@@ -2,5 +2,6 @@ version: 2
 sphinx:
   configuration: conf.py
 python:
-   requirements: requirements.txt
    version: 3.7
+   install:
+    - requirements: requirements.txt
