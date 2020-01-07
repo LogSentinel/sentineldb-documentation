@@ -99,7 +99,7 @@ You can create and modify search schemas by API calls or via a dedicated UI from
 Inserting data
 **************
 
-Below is a curl-based example of API calls. If you want to see examples in some of the popular programming languages, check the :doc:`Examples page </examples>.
+Below is a curl-based example of API calls. If you want to see examples in some of the popular programming languages, check the :doc:`Examples page </examples>`.
 
 First, we create a user. The ``bc3f863b-796b-4ecc-96aa-abf0acea04a4`` parameter is the datastore ID in which we want to store the user (and then the record). We supply an arbitrary JSON for attributes as well as a few predefined fields like email and password:
 
