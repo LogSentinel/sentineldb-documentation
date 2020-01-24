@@ -13,6 +13,7 @@ Welcome to the LogSentinel SentinelDB Documentation!
    api-reference
    features
    sql
+   migrating-existing-projects
    compliance-faq
    mbaas
    
